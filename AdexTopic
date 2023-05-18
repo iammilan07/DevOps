@@ -1,0 +1,35 @@
+# DEvAdex
+
+Types of deployment  HOtfix 
+
+ashokpokharel977
+
+AWS infrastructure
+
+why use multiple containers (TD)
+
+Docker Compose
+
+environment variables
+
+TAsk role vs Task execution role
+
+AWS copilot, teraform,  
+
+copilot -cli/docs/concepts 
+
+services logs
+
+subnet subnet mask
+
+VPC
+
+AWS app runner
+
+lambda function
+
+- EkS vs KUbernets
+- [ecsworkshop.com/whycontainers/ECS](http://ecsworkshop.com/whycontainers/ECS) overview/cluster/Task definition/service/Farget//ServiceDiscovery
+- EC2 instance
+- ECS terraform ()
+- aws sts get-caller-identity --query Arn | grep Milan-role -q && echo "IAM role valid" || echo "IAM role NOT valid”
