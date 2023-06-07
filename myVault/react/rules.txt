@@ -1,0 +1,9 @@
+What is the data source URL?           hrms-data
+
+Should you make new model or reuse existing?     hrms-data
+
+store → should you make new or resuse?           hrms-data
+
+Page → should you make new page or / Reuse ?             hrms-appraisal
+
+components → New (or Reuse)                 hrms-appraisal

@@ -1,0 +1,63 @@
+# # Docker Commands
+
+- create a docker file 
+FROM node:14-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
+
+
+
+then
+docker build -t rigohrms . (name of the images)
+docker run -p 8989:3000 -d movie
+docker-machine ip
+
+for re-commiting 
+docker build -t milan-app
+docker stop milan-app
+docker rm milan-app
+docker run -p 1010:3000 -d milan-app
+
+docker container stats
+docker container inspect mystifying_blackwell(name od the container)
+docker container top mystifying_blackwell
+
+docker container run -it --name webproxy nginx bash(run command id conatiner)
+ls -lrt
+
+docker container run -it --name nginxweb nginx bash(go inside the running conatiner)
+docker container exec -it 1387a07a3ddc touch /tmp/milan (changed)
+docker container exec -it 1387a07a3ddc bash (go inside the container)
+
+to see if your conatiner is taking request or not = docker container port 1387a07a3ddc
+to verify the ip of the conatiner = docker container inspect  1387a07a3ddc
+-docker container inspect -f '{{.NetworkSettings.IPAddress}}' 1387a07a3ddc
+
+Show all networks = docker network ls 
+docker network ls -f driver=bridge      (key=value)filter
+docker network ls --format "{{.ID}}: {{.Driver}}" (filter with network IDs)
+docker network inspect d260a9b8dfe4
+
+-creating a network = docker network create mynetwork
+-connect a container with a network = docker network connect mynetwork  mystifying_blackwell
+-disconnect from a network = docker network disconnect bridge  mystifying_blackwell
+
+docker container exec -it my_nginx1 ping my_nginx2
+
+to find the layers of the images = docker history ubuntu(image name)
+to see the complete meta data of your image = docker inspect milan-app(image name)
+
+docker tags are like version of the images/ 
+docker tag mysql:5.7 mysqlmilan:test
+
+-pushng images in dockerhub= 
+docker login / docker logout
+docker tag nginx iammilan7/nginxtest (Single word push are only for docker officials so we use yourname/iamge name)
+docker image tag iammilan7/nginxtest iammilan7/nginxtest:1.0.0
+docker image push iammilan7/nginxtest:1.0.0
+

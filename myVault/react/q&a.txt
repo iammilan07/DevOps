@@ -1,0 +1,153 @@
+1. What is the difference between let and var in JavaScript?
+Answer: "let"(BlockScope) is a new keyword in JavaScript that was introduced with ECMAScript 6 (ES6). It is used to declare variables with block scope  user cannot redeclare (can be redeclare in diferent block  but can update it. If users use the *let*
+ variable before the declaration, it does not initialize with *undefined*
+ just like a *var* variable, and returns an error., while "var" (functional scope) is used to declare variables with function scope it can be redeclare as well as update. The *const*
+ keyword has all the properties that are the same as the *let*
+ keyword, except the user cannot update it.
+
+2. How does JavaScript handle hoisting?
+Answer: Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their scope. In JavaScript, variable declarations are hoisted, but variable assignments are not.
+
+3. What is the difference between == and === in JavaScript?
+Answer: "==" compares values for equality and does type coercion, meaning it will try to convert the values to the same type before comparison. "===" compares both value and type for equality, meaning it will only return true if the values and types match.
+
+4. What is a closure in JavaScript?
+Answer: A closure is a function that has access to the variables in its parent scope, even after the parent function has returned. fun vitra child fun ra parent fun ko var lai child le access garna sakxa jun vaneko closure ho..
+
+5. What is the Virtual DOM in React?
+Answer: The Virtual DOM is a lightweight representation of the actual DOM that React uses to improve the performance of updates and renderings. When a component's state or props change, React will update the Virtual DOM, and then determine the minimal set of changes needed to be made to the actual DOM.
+
+6. How does React handle form input?
+Answer: React uses a controlled component approach for handling form input. This means that the component's state is used to store the input values and React's event handlers are used to update the state when the input changes.
+
+7. What is the difference between a stateful and stateless component in React?
+Answer: A stateful component is a component that has its own internal state, while a stateless component only receives props and does not maintain its own state.
+
+8. What is the difference between componentWillMount and componentDidMount in React?
+Answer: componentWillMount is called before the initial render and componentDidMount is called after the first render. componentWillMount is called on the server and client side, componentDidMount is only called on the client side.
+
+9. How does React handle events?
+Answer: React uses a synthetic event system to handle events. This means that React wraps browser events with its own event objects and provides a consistent interface for handling events across different browsers.
+
+10. What is the purpose of the React's setState method?
+Answer: The setState method is used to update the component's state and trigger a re-render. React uses an efficient algorithm to determine the minimal set of changes that need to be made to the DOM based on the updated state.
+
+11. promise and call back
+   **A callback function is passed as an argument to another function whereas Promise is something that is achieved or completed in the future.**
+    
+    1. lifecycle methods is react class component are:- constructors→(mounting, updating and unmounting).
+    2. to achieve componentDidMount⇒ useEffect(()⇒{},[]), componentDidUpdate⇒ useEffect(()⇒{},[user]) & componentDidUnMount⇒ useEffect(()⇒{return()⇒{},[]) in functional based component
+    3. What are pure and impure components of React?
+    
+    **A Pure function is a function that does not modify any external variable.** **And the Impure function modifies the external variable**. A basic principle of functional programming is that it avoids changing the application state and variables outside its scope. 
+    
+    1. What are higher order components?
+    
+    **a function which takes another function as an argument or returns a function**
+     is known as a higher-order function. example:- Map, javascript curring.
+    
+    1. redux works as it has reducers that take action and state, and in action, we provide type and payload when we dispatch that action we get the result and using the selector we can get the updated value from the state.
+    2. useState accepts **an initial state**
+     and returns two values: The current state. A function that updates the state.
+    
+    useprams hook helps us to access the parameter of the currrent url of the 
+    
+    1. Where do you use the spread operator?
+    
+    Spread syntax can be used **when all elements from an object or array need to be included in a new array or object, or should be applied one-by-one in a function call's arguments list**.
+
+
+
+import { RootState } from "../Store";
+
+export const selectFootballList: any = (state: RootState) => state.footballDataList.footballData;
+
+export const selectLoading = (state: RootState) => state.footballDataList.loading;
+
+export const selectMappedList = (state: RootState) => {
+    const data: any = state.footballDataList.footballData;
+    debugger
+    const { matches, name } = data;
+    const info: any = {};
+    if (matches && matches.length > 0) {
+        matches.map((item: any) => {
+            const { team1, team2, score } = item;
+            if (!info[team1]) {
+                info[team1] = {
+                    wins: 0,
+                    lose: 0,
+                    games: 0,
+                    lastGames: [],
+                    goalAgainst: 0,
+                    goalConcede: 0,
+
+                };
+            }
+            if (!info[team2]) {
+                info[team2] = {
+                    wins: 0,
+                    games: 0,
+                    lose: 0,
+                    lastGames: [],
+                    goalAgainst: 0,
+                    goalConcede: 0,
+                };
+            }
+            if (!score) {
+                return;
+            }
+            const { ft } = score;
+
+            info[team1].games++;
+            info[team2].games++;
+            info[team1].goalAgainst = info[team1].goalAgainst + ft[0];
+            info[team2].goalAgainst = info[team2].goalAgainst + ft[1];
+            info[team1].goalConcede = info[team1].goalConcede + ft[1];
+            info[team2].goalConcede = info[team2].goalConcede + ft[0];
+
+            if (ft[0] === ft[1]) {
+                info[team1].lastGames = ["d", ...info[team1].lastGames];
+                info[team2].lastGames = ["d", ...info[team2].lastGames];
+            } else if (ft[0] > ft[1]) {
+                info[team1].wins++;
+                info[team2].lose++;
+                info[team1].lastGames = ["w", ...info[team1].lastGames];
+                info[team2].lastGames = ["l", ...info[team2].lastGames];
+            } else {
+                info[team2].wins++;
+                info[team1].lose++;
+                info[team1].lastGames = ["l", ...info[team1].lastGames];
+                info[team2].lastGames = ["w", ...info[team2].lastGames];
+            }
+        });
+    }
+
+    const arrayinfo: any = [];
+    Object.entries(info).forEach(([key, value]) => {
+        arrayinfo.push({
+            name: key,
+            ...info[key]
+        })
+    })
+
+    arrayinfo.sort((a: any, b: any) => {
+        const gda = a.goalAgainst - a.goalConcede; //goaldiiferense
+        const gdb = b.goalAgainst - b.goalConcede;
+        const scorea = (a.wins * 3) + a.games - a.wins - a.lose
+        const scoreb = (b.wins * 3) + b.games - b.wins - b.lose
+        if (scoreb === scorea) {
+            return gdb - gda;
+        }
+        return scoreb - scorea;
+    });
+    return arrayinfo
+}
+
+
+//Rough
+ // for (const key in info) {
+    //     arrayinfo.push({
+    //         name: key,
+    //         ...info[key],
+    //     });
+    // }

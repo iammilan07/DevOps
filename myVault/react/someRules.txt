@@ -1,0 +1,38 @@
+const Card = (props: any) => {
+  const { expense, notifySuccess } = props;
+
+we cannot add multiple props in on compenent but we can add them by destrusturing them
+like above...
+
+
+
+const x = [
+    {
+      name: "asdf",
+      date: "2020-10-20",
+    },
+    {
+      name: "aaa",
+      date: "2020-10-20",
+    },
+    {
+      name: "asdf -19",
+      date: "2020-10-19",
+    },
+    {
+      name: "aaa -19",
+      date: "2020-10-19",
+    },
+  ];
+  
+  let mapped = {};
+  
+  x.forEach((item) => {
+    if (!mapped[item.date]) {
+      mapped[item.date] = [item];
+    } else {
+      mapped[item.date].push(item);
+    }
+  });
+  
+  console.log(JSON.stringify(mapped,null,2));

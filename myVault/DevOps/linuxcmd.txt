@@ -1,0 +1,165 @@
+##################Copy/ Delete/ edit directories and files**
+
+ls- **to show the files and d folder in the dir**
+
+**mkdir make directories** = mkdir test
+
+cd 
+
+touch- **text.txt (make empty files)**
+
+**nano**- (nano 1.txt) **is a text editor to insert text inside files** 
+
+sudo vi text.txt **(edit the text file)**
+
+cat- cat text.txt **(read the files in the terminal)**
+
+nano- any.txt **(create and edit the files)**
+
+grep word-that-you-want-to-search filename(test.txt)  **(help to search the words in the text file like Alt + F)**
+
+grep -i text.txt **(search case insensitive file)**
+
+grep -n text.txt **(returns the matching string along with their line numbers)**
+
+sort text.txt **(helps to sort the files either alphabetically )**
+
+-r **(sort it in reverse order)**
+
+-f **(case-sensitive sorting)**
+
+-n **(sorting in numerical order)**
+
+sudo chown root text.txt **(to change the owner of files)**
+
+touch 1.txt 2.txt 3.txt **(create many files)**
+
+rm 1.txt **(delete Text File)**
+
+rm * **(to delete all files)**
+
+**to delete the empty folder** = rmdir dirname
+
+**to delete the dir that are non-empty** = rm -r dirname
+
+ls-l **(details about files and dir)**
+
+cd .. **(go to back dir)**
+
+cd **(go to home dir)**
+
+**creating a dir and going in that dir** = mkdir testdir && testdir
+
+mkdir test2 && touch test2/file.txt **(creating a dir and also creating a file inside dir)**
+
+~ **home directory**
+
+man **(gives info about commands like man touch)**
+
+clear = **clear all the cmd**
+
+lsof = **(is the command that is used to see the files ad dir who opened them)**
+
+tar -cvf filename source-folder **(for zipping the file)**
+
+tar -xvf filename **(for unzipping the files)**
+
+uniq text.txt **(filtering the duplicating the lines in files)**
+
+##**Move and copy files**
+
+mv 1.txt text1/ 
+
+**to rename file** = mv 1.txt mynewfile.txt
+
+cp /home/user1/docs/file.txt  /home/user2/files/
+
+sed ‘s/textyouwanttoreplace/text/’ text.txt
+
+ **(This is very critical command)** dd if =/dev/hdda **(sourceFile)** of = /dev/hddb **(Destinationfile) (used to back up the files from one disk to another)**
+
+awk ‘{print}’ text.txt (print the content in the text file)
+
+awk ‘/searchword/{print}’ text.txt **(helps to print the line having search words)**
+
+cat mutton.txt | tr “[a-z]” “[A-Z]” **to small to capital**
+
+service iptables stop (used disable the firewall)
+
+sudo df -h (to see the available disk storage)
+
+sudo du -h -d 1 (see which part consumes more space)
+
+#######################**Installing package**
+
+**apt is the package of Ubuntu.**
+
+sudo apt install docker
+
+sudo = **super user do/root user**
+
+sudo apt update && sudo apt upgrade
+
+**To delete any package =** sudo apt purge git
+
+SSH **(remote login client)**
+
+ssh master-ip
+
+ssh slave-ip
+
+ssh-keygen -t rsa (this helps from attacker who have your personal key)
+
+-t (is used to specify type of key you want to)
+
+ifconfig -s **(shows the interface shortly)**
+
+history **(to see what cmnd are used)**
+
+history 5 **(shows the last 5 commands that are used)**
+
+**Paths**
+
+pwd (present working dir) helps to know the paths
+
+sudo su (change user → root user. )
+
+exit - back to the original user
+
+docker → gives details
+
+docker - -version
+
+sudo apt update docker
+
+date =tells the date 
+
+vim is the command that creates and exist files at the same time
+
+press esc key,    first type I and type
+
+:qq! (for back existing without saving)
+
+:wq (saving and existing)
+
+##################*Network Commands**
+
+ping (use to check connection is established or not) (ctr + c to exit) (ping google.com)
+
+ip addr (check your ip address)
+
+nslookup (details about the domain) (nslookup rigonepal.com)
+
+curl [google.com](http://google.com) (get content of the website)
+
+wget (use command to download the files) (wget link to download)
+
+**To Add New User**
+
+sudo useradd userName
+
+for creating Pw = sudo passwd nameOfuser
+
+for switching user (sudo su username)
+
+To delete the user = sudo deluser userName

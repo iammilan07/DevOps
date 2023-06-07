@@ -1,0 +1,39 @@
+version: '3'
+
+  
+
+services:
+
+  myservice:
+
+    image: iammilan7/milan-app:1.1.1
+
+    restart: always
+
+    container_name: dockerhubs
+
+    ports:
+
+      - "8848:80"
+
+    volumes:
+
+      - ./data:/app/data
+
+  
+
+  myservices:
+
+    image: iammilan7/nginxtest:latest
+
+    restart: always
+
+    container_name: dockerhubss
+
+    ports:
+
+      - "8844:80"
+
+    volumes:
+
+      - ./data:/app/data

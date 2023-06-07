@@ -1,0 +1,43 @@
+-after getting some task, had to ask all things like how data came and what is looks like, 
+
+export const fetchPerformanceList = () => async (dispatch: any, getState: any) => {
+    dispatch(fromSlice.fetchRequest())
+    const state = getState()
+    const currentFilterState = fromPerformanceScoreFilterStore.selectCurrentPerformanceScoreFilter(state);
+    const param = {
+        ...currentFilterState,
+
+    }
+    const response: fromInterface.ResponseWrapper<any> = await ApiClient.post<any>({
+        endpoint: PERFORMANCE_SCORES_LIST,
+        body: param,
+        dispatch: dispatch,
+    })
+    const { Data, Status } = response
+    if (Status) {
+        dispatch(fromSlice.fetchSuccessList(Data))
+    }
+}
+export const fetchPerformanceScoresDetails = (rolloutId: any) => async (dispatch: any) => {
+    const response: fromInterface.ResponseWrapper<any> = await ApiClient.get<any>({
+        endpoint: PERFORMANCE_SCORES_BY_ROLLOUTID.replace(":rolloutId", rolloutId + ""),
+        dispatch: dispatch,
+    })
+    return response
+}
+
+
+const handleDetail = async (data: any) => {
+    var res: any = await dispatch(
+      fromDataStore?.fetchPerformanceScoresDetails(data?.RolloutId)
+    );
+    if (res?.Status) {
+      onOpen();
+      setNewData(res?.Data);
+    }
+  };
+
+  here the table list data already had the rollout id ,
+in event handler above i had call my getrollout id acrion from redux action and assign it in res,
+also in res the data were came with respose of click event and in each event the rollout id is checked, and in terms of rool out the data is displayed or assinged to setNewData function which later on update the initialdata (newData).
+i had done mistake here is that i want to pass rolloutId mannuallly, without reconizing there is already roolout id comming with data of list items,

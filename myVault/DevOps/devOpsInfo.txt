@@ -1,0 +1,116 @@
+Development + Operation = DevOps
+
+CI/CD is the heart of DevOps
+
+Deelopment Team <→ Devops ↔ Operation Team ↔ Deploying Team, Managing Server
+
+
+# Tools
+
+GIT Commands 
+
+Docker (like a container file)
+
+CI/CD (Zenkin, Circle-I, Tutor)
+
+Kubernetes
+
+Programing Language
+
+Linux (Shell scripting, batch-scripting) (Scripting language)
+
+Azures Pipelines (SignIn and get started)
+
+- DevOps is a state of mind that tries to implement the best practices using the DevOps tool.
+- learn scripting that will help to automate repetition tasks.
+- learn any one of the cloud providers like Azure, AWS, GCP.
+
+
+# RoadMap
+
+- Linux
+- Programming Language
+- Networking
+- Version Control System
+- Cloud Providers
+- Docker
+- Kubernetes
+- Infrastructures as a code
+- CI/CD
+- Configuration Management Tools
+- Monitoring and Log Management Tools
+- Resume
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ddc2540e-b145-49cc-afbc-00711d3c6c5a/Untitled.png)
+
+DevOps is not a goal but a never-ending process of continuous improvement.
+
+- DevOps is all about automating the process and implementing the best practices with the help of tools.
+
+- Linux: -
+
+basic commands - Echo, Ls, rm-k, pwd, cp-r, cat, cd, touch
+
+Linux file system, Os Basic, Virtualization, Shell Scripting (it helps to automate the smaller task), working with VM editor, disk management
+
+- Networking
+
+DNS configuration
+
+How Traffic is controlled
+
+Gateway
+
+Routing
+
+IP address and Ports
+
+Switching
+
+- GIT
+
+learn git commands
+
+- Cloud Provider
+
+AWS, Google Cloud, Microsoft Azure
+
+- Docker (Containerization Tools)
+
+yeauta systemma chaleko application aarko systen ma nachalera Docker AAyeako
+
+It package your application and all your dependencies abd libraries,
+
+all in one as one unit.
+
+fetaures :- 
+
+Containers
+
+Portability
+
+Scalability
+
+Consistency
+
+- Orchestration Tool - Kubernetes
+
+It is an open source container orcestration platform that automates the deployment, scalling and management of containerized application, with the help of kubernates you can deploy manage containers across clusters of machine, scalling your application up or down and ensuring your application is available to users.
+
+- Continuous Integration and Continuous Deployment
+
+Integration  Build → Test → Merge
+
+Delivery  Automatically Release to the repository
+
+Deployment Automatically release to production
+
+CI/ CD Tools Jenkins
+
+- Configuration Management Tools
+
+Ansible, Puppet, CHEF, SALTStack
+
+- Monitoring and Log Management Tools
+
+Grafara, Splunk, Promertheus, Stack

@@ -1,0 +1,103 @@
+# Git Commands
+
+git init
+
+cd>ReadMe.txt (creating a text file)
+
+git status
+
+git add ReadMe.txt
+
+git add . (adding all files)
+
+git commit -m "my first commmit”
+
+git push -u origin master
+
+git push -u "https://gitlab.com/pandeymilan810/premierleague20-21.git" master
+
+git branch mynewbranch
+
+git checkout mynewbranch
+
+git push origin mynewbranch
+
+git merge myNewbranch
+
+git push
+
+git branch -d mynewbranch
+
+git push origin --delete mynewbranch
+
+delete
+
+git rm —cached <filename>
+
+git rm -r —cached <dir>
+
+
+git checkout dmgr2      # gets you "on branch dmgr2"
+git fetch origin        # gets you up to date with origin
+git merge origin/master
+
+
+- Git Tags
+
+git tag v1.0
+
+git tag
+
+git show v1.0
+
+git push --tags
+
+git tag -d v1.0
+
+git push origin -d v1.0
+
+git pull is git fetch + git merge
+
+git fetch (Update remote-tracking branch from remote branch)
+
+git pull
+
+- cheery picking
+
+let 2 branches main and developer
+
+go to develop branch 
+
+make any changes like touch develp.txt
+
+git status
+
+git add .
+
+git commit -m “commit message”
+
+now create another file so that we have two commits
+
+touch develop2.txt
+
+git add .
+
+git commit -m “commit message”
+
+git push origin develop(branch name)
+
+git log (shows all the commits history)
+
+now to merge any particular commits in the master branch 
+
+git cherry-pick addcommitID
+
+git push origin master
+
+- revert reset checkout
+
+do some changes in some files like in test.txt
+
+git status
+
+git checkout text.txt

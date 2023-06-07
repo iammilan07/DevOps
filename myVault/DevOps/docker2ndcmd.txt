@@ -1,0 +1,22 @@
+creating a docker file 
+2. `FROM`: Specifies the base image to use as the starting point for the new image.
+3.  `COPY` or `ADD`: Copies files or directories from the host machine into the image.
+4.  `RUN`: Executes commands or scripts during the image build process.
+5.  `WORKDIR`: Sets the working directory for subsequent instructions.
+6.  `EXPOSE`: Declares the ports on which the container will listen for connections.
+7.  `CMD` or `ENTRYPOINT`: Specifies the command to be executed when a container is launched.
+8.  `ENV`: Sets environment variables inside the image.
+9.  `ARG`: Defines build-time variables that can be passed during the image build process.
+10.  `VOLUME`: Creates a mount point and designates a directory as a volume for persistent data storage.
+11.  `USER`: Sets the user or UID under which the container runs the subsequent instructions.
+12.  `LABEL`: Adds metadata to the image in the form of key-value pairs.
+13.  `HEALTHCHECK`: Defines a command to check the health of a running container.
+14.  `ONBUILD`: Specifies a set of instructions that will be executed when the image is used as the base for another image.
+15.  Comments: Lines starting with `#` are treated as comments and are not executed.crea
+
+Docker Image is Build from Docker File. docker build -t IMAGENAME:TAGNAME dir
+docker build -t customnginx:0.0.1 C:\Users\Milan\Desktop\test\test
+docker run -d -p 4444:90 customnginx:0.0.1
+
+creating cuctom volume 
+= docker run -d --name mysqldb1 -e MYSQL_ALLOW_EMPTY_PASSWORD=True --mount source=mysql-db,destination=/var/lib/mysql mysql
